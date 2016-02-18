@@ -64,24 +64,64 @@ namespace TDDTenta
 
         public void RunConsole()
         {
+            Console.Clear();
             Console.WriteLine("Uppgift 7");
-            /*
-            while (true)
+            while(true)
             {
-                Console.WriteLine("Fyll i slutår: (exempelvis '2016')");
-                int endYear;
-                int.TryParse(Console.ReadLine(), out endYear);
+                Console.WriteLine("Ange ålder på familjemedlem: ");
                 try
                 {
-                    Console.WriteLine(String.Format("Antal invånare efter {0} år är {1}", endYear - startYear, RaknaUtInvanare(endYear)));
-                    break;
+                    int age;
+                    int.TryParse(Console.ReadLine(), out age);
+                    AddFamilyMember(age);
+
+                    Console.WriteLine("Tryck på 'N' för att lägga till en ny familjemedlem");
+                    Console.WriteLine("Tryck på någon annan tangent för att beräkna totalpriset");
+                    var pressedKey = Console.ReadKey();
+                    if (pressedKey.Key.ToString().ToLower() == "n")
+                    {
+                        Console.Clear();
+                        continue;
+                    }
+                    else
+                    {
+                        Console.Clear();
+
+                        Console.WriteLine("Tryck på 'H' om du vill beräkna till helgpris");
+                        Console.WriteLine("Tryck på någon annan tangent för att beräkna vardagspris");
+                        if (Console.ReadKey().Key.ToString().ToLower() == "h")
+                        {
+                            IsWeekend = true;
+                        }
+                        Console.Clear();
+
+                        int biljettpris;
+                        if(IsWeekend == true)
+                        {
+                            Console.WriteLine("[Helgpriser]");
+                            biljettpris = 200;
+                        }
+                        else
+                        {
+                            Console.WriteLine("[Vardagspriser]");
+                            biljettpris = 100;
+                        }
+
+                        Console.WriteLine(String.Format("{0} st vuxna \t {1} kr", vuxna, vuxna * biljettpris));
+                        Console.WriteLine(String.Format("{0} st ungdomar \t {1} kr", ungdom, (ungdom * biljettpris / 2) ));
+                        Console.WriteLine(String.Format("{0} st barn \t {1} kr", barn, 0));
+                        Console.WriteLine("--------------------------------------------------");
+                        Console.WriteLine(String.Format("Totalpris: {0} kr", GetTotalPrice()));
+                        break;
+                    }
                 }
-                catch (Exception e)
+                catch(Exception e)
                 {
                     Console.WriteLine(e.Message);
                 }
             }
-            */
+
+            Console.ReadKey();
         }
 
     }
