@@ -28,6 +28,10 @@ namespace TDDTenta
             {
                 throw new Exception(String.Format("År {0} är större än max tillåtna år.", endYear));
             }
+            else if(endYear < 2015)
+            {
+                throw new Exception("Kan inte ange ett tidigare år än 2015.");
+            }
 
             double invanare = 26000;
             double inflytt = 300;
