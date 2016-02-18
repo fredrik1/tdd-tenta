@@ -24,6 +24,10 @@ namespace TDDTenta
 
         public void AddFamilyMember(int age)
         {
+            if(age > 100)
+            {
+                throw new Exception("Nöjesparkens max tillåtna ålder är 100");
+            }
             // Vuxen (Över 15 år)
             if(age > 15)
             {
