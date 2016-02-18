@@ -20,11 +20,14 @@ namespace TDDTentaTests
             uppg7.AddFamilyMember(55);
             expectedTotalCost += 100;
             uppg7.AddFamilyMember(16);
-            expectedTotalCost += 50;
+            expectedTotalCost += 100;
             uppg7.AddFamilyMember(12);
             expectedTotalCost += 50;
             uppg7.AddFamilyMember(4);
             expectedTotalCost += 0;
+
+            // Non Weekend
+            uppg7.IsWeekend = false;
 
             Assert.AreEqual(expectedTotalCost, uppg7.GetTotalPrice());
         }
@@ -56,16 +59,34 @@ namespace TDDTentaTests
         [TestMethod]
         public void Uppg7_TestAddFamilyMemberWithNegativeAge()
         {
+            string errMsg = "";
             var uppg7 = new Uppgift7();
-            uppg7.AddFamilyMember(-1);
+            try
+            {
+                uppg7.AddFamilyMember(-1);
+            }
+            catch (Exception e)
+            {
+                errMsg = e.Message;
+            }
+            Assert.AreEqual("Ogiltig ålder", errMsg);
         }
 
 
         [TestMethod]
         public void Uppg7_TestAddFamilyMemberWithAgeZero()
         {
+            string errMsg = "";
             var uppg7 = new Uppgift7();
-            uppg7.AddFamilyMember(0);
+            try
+            {
+                uppg7.AddFamilyMember(0);
+            }
+            catch(Exception e)
+            {
+                errMsg = e.Message;
+            }
+            Assert.AreEqual("Ogiltig ålder", errMsg);
         }
     }
 }

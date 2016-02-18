@@ -20,6 +20,8 @@ namespace TDDTenta
             barn = 0;
         }
 
+        public bool IsWeekend { get; set; }
+
         public void AddFamilyMember(int age)
         {
             // Vuxen (Över 15 år)
@@ -37,16 +39,27 @@ namespace TDDTenta
             {
                 barn++;
             }
-        }
-
-        public void SetDayOfWeek(int v)
-        {
-            throw new NotImplementedException();
+            else
+            {
+                throw new Exception("Ogiltig ålder");
+            }
         }
 
         public int GetTotalPrice()
         {
-            throw new NotImplementedException();
+            int biljettpris = 100;
+            int totalPrice = 0;
+
+            if(IsWeekend == true)
+            {
+                // Dubbla det normala biljettpriset om det är helg
+                biljettpris *= 2;
+            }
+
+            totalPrice += vuxna * biljettpris;
+            totalPrice += (ungdom * biljettpris) / 2;
+
+            return totalPrice;
         }
     }
 }
