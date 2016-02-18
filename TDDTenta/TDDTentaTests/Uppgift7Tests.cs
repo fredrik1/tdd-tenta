@@ -57,6 +57,22 @@ namespace TDDTentaTests
         }
 
         [TestMethod]
+        public void Uppg7_TestAddFamilyMemberWithAgeOver100()
+        {
+            string errMsg = "";
+            var uppg7 = new Uppgift7();
+            try
+            {
+                uppg7.AddFamilyMember(101);
+            }
+            catch (Exception e)
+            {
+                errMsg = e.Message;
+            }
+            Assert.AreEqual("Nöjesparkens max tillåtna ålder är 100", errMsg);
+        }
+
+        [TestMethod]
         public void Uppg7_TestAddFamilyMemberWithNegativeAge()
         {
             string errMsg = "";
