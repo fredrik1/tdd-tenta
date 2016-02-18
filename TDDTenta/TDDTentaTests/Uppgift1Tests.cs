@@ -109,7 +109,7 @@ namespace TDDTentaTests
             {
                 errMsg = e.Message;
             }
-            Assert.AreEqual(String.Format("År {0} är större än max tillåtna år.", maximumEndYear + 1), errMsg);
+            Assert.AreEqual(String.Format("Max tillåtna år är 2100.", maximumEndYear + 1), errMsg);
         }
     }
 }

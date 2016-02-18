@@ -26,7 +26,7 @@ namespace TDDTenta
             }
             else if (endYear > maximumEndYear)
             {
-                throw new Exception(String.Format("År {0} är större än max tillåtna år.", endYear));
+                throw new Exception(String.Format("Max tillåtna år är 2100.", endYear));
             }
             else if(endYear < 2015)
             {
@@ -65,6 +65,7 @@ namespace TDDTenta
                 try
                 {
                     Console.WriteLine(String.Format("Antal invånare efter {0} år är {1}", endYear - startYear, RaknaUtInvanare(endYear)));
+                    Console.ReadKey();
                     break;
                 }
                 catch (Exception e)
