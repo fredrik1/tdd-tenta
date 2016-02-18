@@ -47,5 +47,28 @@ namespace TDDTenta
             }
             return invanare;
         }
+
+        public void RunConsole()
+        {
+            int startYear = 2015;
+            Console.WriteLine("Uppgift 1");
+
+            while(true)
+            {
+                Console.WriteLine("Fyll i slutår: (exempelvis '2016')");
+                int endYear;
+                int.TryParse(Console.ReadLine(), out endYear);
+                try
+                {
+                    Console.WriteLine(String.Format("Antal invånare efter {0} år är {1}", endYear - startYear, RaknaUtInvanare(endYear)));
+                    break;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+            }
+
+        }
     }
 }
