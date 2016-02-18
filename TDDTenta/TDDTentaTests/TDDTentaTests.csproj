@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="Uppgift7Tests.cs" />
     <Compile Include="Uppgift1Tests.cs" />
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

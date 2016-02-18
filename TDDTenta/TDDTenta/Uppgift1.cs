@@ -14,15 +14,15 @@ namespace TDDTenta
         {
             if(endYear == null)
             {
-                throw new ArgumentNullException();
+                throw new ArgumentNullException("År kan inte vara tomt.");
             }
             else if (endYear == 0)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("År kan inte vara 0 (noll).");
             }
             else if (endYear < 0)
             {
-                throw new ArgumentOutOfRangeException();
+                throw new ArgumentOutOfRangeException("År kan inte vara lägre än 0 (noll)!");
             }
             else if (endYear > maximumEndYear)
             {
@@ -55,11 +55,13 @@ namespace TDDTenta
         public void RunConsole()
         {
             int startYear = 2015;
+            Console.Clear();
             Console.WriteLine("Uppgift 1");
 
             while(true)
             {
-                Console.WriteLine("Fyll i slutår: (exempelvis '2016')");
+                Console.WriteLine("Startår: 2015");
+                Console.Write("Ange slutår: ");
                 int endYear;
                 int.TryParse(Console.ReadLine(), out endYear);
                 try
@@ -67,6 +69,15 @@ namespace TDDTenta
                     Console.WriteLine(String.Format("Antal invånare efter {0} år är {1}", endYear - startYear, RaknaUtInvanare(endYear)));
                     Console.ReadKey();
                     break;
+                }
+                catch(ArgumentNullException e)
+                {
+                    Console.WriteLine(e.ParamName);
+
+                }
+                catch(ArgumentOutOfRangeException e)
+                {
+                    Console.WriteLine(e.ParamName);
                 }
                 catch (Exception e)
                 {
