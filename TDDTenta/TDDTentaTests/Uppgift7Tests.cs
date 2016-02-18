@@ -46,9 +46,9 @@ namespace TDDTentaTests
             uppg7.AddFamilyMember(16);
             expectedTotalCost += 200;
             uppg7.AddFamilyMember(12);
-            expectedTotalCost += 200;
+            expectedTotalCost += 100;
             uppg7.AddFamilyMember(4);
-            expectedTotalCost += 200;
+            expectedTotalCost += 0;
 
             // Sätt veckodagen till Söndag
             uppg7.SetDayOfWeek(7);
