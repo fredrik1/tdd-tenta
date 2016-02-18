@@ -1,14 +1,21 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using TDDTenta;
 
 namespace TDDTentaTests
 {
     [TestClass]
     public class Uppgift1Tests
     {
-        int maximumEndYear = 2100;
+        Uppgift1 uppg1;
+        int maximumEndYear;
 
-        Uppgift1 uppg1 = new Uppgift1();
+        [TestInitialize]
+        public void Setup()
+        {
+            uppg1  = new Uppgift1();
+            maximumEndYear = 2100;
+        }
 
         // Beräkna förväntat antal invånare enligt diagrammet
         // Lagt det i egen metod så att olika testfall kan återanvända uträkningen.
