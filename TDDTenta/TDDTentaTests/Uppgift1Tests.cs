@@ -55,6 +55,22 @@ namespace TDDTentaTests
         }
 
         [TestMethod]
+        public void Uppg1_TestEndYearAs2014()
+        {
+            string errMsg = "";
+            int endYear = 2014;
+            try
+            {
+                uppg1.RaknaUtInvanare(endYear);
+            }
+            catch(Exception e)
+            {
+                errMsg = e.Message;
+            }
+            Assert.AreEqual(String.Format("Kan inte ange ett tidigare år än 2015."), errMsg);
+        }
+
+        [TestMethod]
         [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
         public void Uppg1_TestEndYearAsNegative()
         {
@@ -84,14 +100,16 @@ namespace TDDTentaTests
         [TestMethod]
         public void Uppg1_TestMaxEndYearPlusOne()
         {
+            string errMsg = "";
             try
             {
                 uppg1.RaknaUtInvanare(maximumEndYear + 1);
             }
             catch (Exception e)
             {
-                Assert.AreEqual(String.Format("År {0} är större än max tillåtna år.", maximumEndYear + 1), e.Message);
+                errMsg = e.Message;
             }
+            Assert.AreEqual(String.Format("År {0} är större än max tillåtna år.", maximumEndYear + 1), errMsg);
         }
     }
 }
