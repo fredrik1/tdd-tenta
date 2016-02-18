@@ -41,14 +41,14 @@ namespace TDDTentaTests
         }
 
         [TestMethod]
-        public void TestEndYearAs2016()
+        public void Uppg1_TestEndYearAs2016()
         {
             int endYear = 2016;
             Assert.AreEqual(CalcExpectedPopulation(endYear), uppg1.RaknaUtInvanare(endYear));
         }
 
         [TestMethod]
-        public void TestEndYearAs2030()
+        public void Uppg1_TestEndYearAs2030()
         {
             int endYear = 2030;
             Assert.AreEqual(CalcExpectedPopulation(endYear), uppg1.RaknaUtInvanare(endYear));
@@ -56,33 +56,33 @@ namespace TDDTentaTests
 
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
-        public void TestEndYearAsNegative()
+        public void Uppg1_TestEndYearAsNegative()
         {
             uppg1.RaknaUtInvanare(-1);
         }
 
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentOutOfRangeException))]
-        public void TestEndYearAsZero()
+        public void Uppg1_TestEndYearAsZero()
         {
             uppg1.RaknaUtInvanare(0);
         }
 
         [TestMethod]
         [ExpectedException(typeof(System.ArgumentNullException))]
-        public void TestEndYearAsNull()
+        public void Uppg1_TestEndYearAsNull()
         {
             uppg1.RaknaUtInvanare(null);
         }
 
         [TestMethod]
-        public void TestMaxEndYear()
+        public void Uppg1_TestMaxEndYear()
         {
             uppg1.RaknaUtInvanare(maximumEndYear);
         }
 
         [TestMethod]
-        public void TestMaxEndYearPlusOne()
+        public void Uppg1_TestMaxEndYearPlusOne()
         {
             try
             {
