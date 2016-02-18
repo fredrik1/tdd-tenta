@@ -26,9 +26,6 @@ namespace TDDTentaTests
             uppg7.AddFamilyMember(4);
             expectedTotalCost += 0;
 
-            // Sätt veckodagen till Onsdag
-            uppg7.SetDayOfWeek(3);
-
             Assert.AreEqual(expectedTotalCost, uppg7.GetTotalPrice());
         }
 
@@ -50,8 +47,8 @@ namespace TDDTentaTests
             uppg7.AddFamilyMember(4);
             expectedTotalCost += 0;
 
-            // Sätt veckodagen till Söndag
-            uppg7.SetDayOfWeek(7);
+            // Sätt veckodagen till helgdag
+            uppg7.IsWeekend = true;
 
             Assert.AreEqual(expectedTotalCost, uppg7.GetTotalPrice());
         }
